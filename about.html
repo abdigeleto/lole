@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Lole Evangelical Church</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Corrected: Added Missing Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Lole Evangelical Church Logo">
+                <span>Lole Evangelical Church</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="beliefs.html">Our Beliefs</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="donate.html" style="color: var(--accent-color); font-weight: bold;">Give</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title animate-on-scroll">
+            <div class="container">
+                <h1>About Lole Evangelical Church</h1>
+            </div>
+        </section>
+
+        <section class="content-section container animate-on-scroll">
+
+            <h2>Our Story</h2>
+            <p>Lole Evangelical Church, located in the city of Hawassa, Ethiopia, is a dedicated, disciple-making
+                community committed to the foundational truths of the Christian faith.</p>
+            <p>We were founded in September 2019, initially comprising a dedicated group of just seven individuals. Our
+                mission, from day one, has been to proclaim the Gospel of Jesus Christ and see lives transformed through
+                a genuine encounter with God's Word. Since our inception, we have made significant strides in positively
+                impacting the lives of our members and the wider community in Hawassa.</p>
+
+            <!-- Church History Video -->
+            <div class="church-video-section animate-on-scroll">
+                <p class="video-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="23 7 16 12 23 17 23 7" />
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                    </svg>
+                    Church Documentary
+                </p>
+                <div class="video-player-wrapper" id="church-history-player" data-videoid="hDNyubMqses"
+                    onclick="playChurchVideo(this)" role="button" tabindex="0"
+                    aria-label="Play: The Story of Lole Evangelical Church">
+                    <!-- YouTube maxresdefault thumbnail as poster -->
+                    <img src="https://img.youtube.com/vi/hDNyubMqses/maxresdefault.jpg"
+                        alt="The Story of Lole Evangelical Church" class="video-thumbnail"
+                        onerror="this.src='https://img.youtube.com/vi/hDNyubMqses/hqdefault.jpg'">
+                    <!-- Overlay gradient -->
+                    <div class="video-overlay"></div>
+                    <!-- Play button -->
+                    <div class="video-play-btn" aria-hidden="true">
+                        <div class="play-pulse"></div>
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                    <!-- Title card -->
+                    <div class="video-title-card">
+                        <h3>The Story of Lole Evangelical Church</h3>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+
+            <h2>Our Vision</h2>
+            <p>Our overarching vision is simple: to cultivate and empower fully devoted disciples of Jesus Christ who,
+                in turn, passionately disciple others.</p>
+            <p>We are committed to a continuous cycle of spiritual growth—being transformed by the Gospel so we can be
+                agents of transformation in Hawassa and beyond.</p>
+
+            <hr class="section-divider">
+
+            <h2>Our Core Values: What We Live By</h2>
+            <p>These five core values are the heart and foundation of everything we do:</p>
+            <ul>
+                <li><strong>Sola Scriptura (The Authority of Scripture):</strong> We hold deep respect for the authority
+                    of the Bible as the inspired, infallible, and all-sufficient Word of God. It is our final guide for
+                    faith and practice.</li>
+                <li><strong>Holiness:</strong> We are committed to holiness in every sphere of life, striving to reflect
+                    Christ's character through the power of the Holy Spirit.</li>
+                <li><strong>Love and Inclusivity:</strong> We embrace radical love and warm inclusivity, welcoming all
+                    people into our community with the grace and truth of the Gospel.</li>
+                <li><strong>Exemplary Living:</strong> We are dedicated to exemplary living, believing that our actions
+                    and character should consistently bear witness to the hope we have in Christ.</li>
+                <li><strong>Discipleship:</strong> We are dedicated to multiplying disciples, equipping every member to
+                    know Christ intimately and to train others to do the same.</li>
+            </ul>
+
+            <hr class="section-divider">
+
+            <h2 id="worship-gathering">Worship and Gathering</h2>
+            <p>We believe that consistent gathering is vital for spiritual health. We observe a regular, weekly schedule
+                designed to encourage <strong>deep spiritual growth</strong>, enrich <strong>fellowship</strong>, and
+                dedicate us to <strong>community service</strong> in Hawassa.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Focus</th>
+                            <th>Time</th>
+                            <th>Activity Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Day"><span><strong>Sunday</strong></span></td>
+                            <td data-label="Focus"><span>Worship and Teaching</span></td>
+                            <td data-label="Time"><span><strong>9:00 AM</strong></span></td>
+                            <td data-label="Activity Details"><span>Our main service gathers the whole congregation for
+                                    corporate worship. The service centers on the <strong>public reading of two selected
+                                        Bible chapters</strong>, followed by <strong>expository preaching</strong>—a
+                                    commitment to faithfully explaining God's Word.</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Day"><span><strong>Wednesday</strong></span></td>
+                            <td data-label="Focus"><span>Doctrinal Study</span></td>
+                            <td data-label="Time"><span><strong>6:00 PM</strong></span></td>
+                            <td data-label="Activity Details"><span>Midweek is dedicated to <strong>small group Bible
+                                        doctrine studies</strong>. This informal setting encourages deeper learning,
+                                    discussion, and practical application of theological truths.</span></td>
+                        </tr>
+                        <tr>
+                            <td data-label="Day"><span><strong>Friday</strong></span></td>
+                            <td data-label="Focus"><span>Worship and Service</span></td>
+                            <td data-label="Time"><span><strong>6:00 PM</strong></span></td>
+                            <td data-label="Activity Details"><span>Fridays are a unique blend of spiritual expression
+                                    and community outreach. We gather for <strong>worship through hymns</strong> and
+                                    then dedicate time to <strong>philanthropic activities</strong>, contributing
+                                    essentials like clothing and food to aid the less fortunate in our community.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Our Leadership</h2>
+            <p>Our church is led by a plurality of elders who meet the biblical qualifications found in 1 Timothy 3 and
+                Titus 1. They are responsible for the spiritual oversight, teaching, and shepherding of the
+                congregation.</p>
+            <div class="leadership-grid single-leader">
+                <div class="leader-card animate-on-scroll">
+                    <!-- This is where you add the image -->
+                    <img src="images/samuel.jpg" alt="Photo of Pastor Samuel Tura">
+
+                    <h3>Samuel Tura</h3>
+                    <h4>Pastor</h4>
+                    <p>As Lole Evangelical Church's pastor since 2019, Samuel centers his teaching on expository
+                        preaching. His ministry is dedicated to unfolding the meaning of Scripture verse-by-verse for
+                        the congregation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Lole Evangelical Church</h3>
+                    <p>A community dedicated to the glory of God through the preaching of His Word.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="beliefs.html">Our Beliefs</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="donate.html">Give</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Find Us</h3>
+                    <p><strong>Address:</strong><br>New Stadium, Hawassa, Ethiopia</p>
+                    <p><strong>Email:</strong><br><a href="mailto:info@lole.et">info@lole.et</a><br><a
+                            href="tel:+251977125512">+251977125512</a></p>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="footer-social-icons"><a href="https://www.facebook.com/loleEvangelicalchurchofficial/"
+                            target="_blank" aria-label="Facebook"><img
+                                src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook Icon" /></a><a
+                            href="https://www.youtube.com/@loleevangelicalchurch" target="_blank"
+                            aria-label="YouTube"><img src="https://img.icons8.com/color/48/youtube-play.png"
+                                alt="YouTube Icon" /></a><a href="https://www.tiktok.com/@loletube1" target="_blank"
+                            aria-label="TikTok"><img src="https://img.icons8.com/color/48/tiktok--v1.png"
+                                alt="TikTok Icon" /></a><a href="https://t.me/lole_evangelical_church" target="_blank"
+                            aria-label="Telegram"><img src="https://img.icons8.com/color/48/telegram-app--v1.png"
+                                alt="Telegram Icon" /></a><a href="https://chat.whatsapp.com/Cj0OKZYq8BIJcVEwb69Rcy"
+                            target="_blank" aria-label="WhatsApp"><img
+                                src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp Icon" /></a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lole Evangelical Church. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

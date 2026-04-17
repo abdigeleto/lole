@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church News | Lole Evangelical Church</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .article-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(27, 67, 50, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .article-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .article-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 3rem 0;
+        }
+
+        .article-gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .article-gallery img:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Lole Evangelical Church Logo">
+                <span>Lole Evangelical Church</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="beliefs.html">Our Beliefs</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="donate.html" style="color: var(--accent-color); font-weight: bold;">Give</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation"><span class="hamburger"></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title animate-on-scroll">
+            <div class="container">
+                <h1>Church News</h1>
+            </div>
+        </section>
+
+        <section class="content-section container animate-on-scroll">
+            <article class="news-article">
+                <div class="article-header">
+                    <span class="article-date">Published April 2026</span>
+                    <h2>A Joyful Baptism Sunday at the Lake</h2>
+                </div>
+
+                <div class="article-content">
+                    <p>We rejoice and give glory to God for His wondrous work in the hearts of His people! It was with
+                        great joy that our church family gathered at the serene local lake to witness the baptism of
+                        nine members of our congregation. This beautiful ordinance is a powerful, public declaration of
+                        their faith and new life in Jesus Christ.</p>
+
+                    <p>Baptism serves as a sacred symbol of our union with Christ in His death, burial, and
+                        resurrection. As each member descended into the waters, they visually proclaimed their
+                        renunciation of their former life of sin. Coming up out of the water, they symbolized their
+                        spiritual resurrection—raised to walk in newness of life, washed clean by the blood of the Lamb.
+                    </p>
+
+                    <div class="article-gallery">
+                        <img src="images/baptism1.png" alt="Baptism Ceremony 1" class="animate-on-scroll">
+                        <img src="images/baptism2.png" alt="Baptism Ceremony 2" class="animate-on-scroll delay-1">
+                        <img src="images/baptism3.png" alt="Baptism Ceremony 3" class="animate-on-scroll delay-2">
+                        <img src="images/baptism4.png" alt="Baptism Ceremony 4" class="animate-on-scroll delay-3">
+                    </div>
+
+                    <p>Prior to the baptism, each candidate shared their personal testimony of God's saving grace. We
+                        heard moving accounts of how the Lord sovereignly drew them out of spiritual darkness and opened
+                        their eyes to the truth of the Gospel. Hearing how the Holy Spirit convicted them of sin and
+                        granted them the gift of faith was profoundly edifying for the entire congregation.</p>
+
+                    <p>We pray that these brothers and sisters will continue to walk in a manner worthy of the gospel,
+                        growing daily in the grace and knowledge of our Lord. Please join us in continually celebrating
+                        their obedience to Christ's command and supporting them in their journey of faith. Soli Deo
+                        Gloria!</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Lole Evangelical Church</h3>
+                    <p>A community dedicated to the glory of God through the preaching of His Word.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="beliefs.html">Our Beliefs</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="donate.html">Give</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Find Us</h3>
+                    <p><strong>Address:</strong><br>New Stadium, Hawassa, Ethiopia</p>
+                    <p><strong>Email:</strong><br><a href="mailto:info@lole.et">info@lole.et</a><br><a
+                            href="tel:+251977125512">+251977125512</a></p>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="footer-social-icons"><a href="https://www.facebook.com/loleEvangelicalchurchofficial/"
+                            target="_blank" aria-label="Facebook"><img
+                                src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook Icon" /></a><a
+                            href="https://www.youtube.com/@loleevangelicalchurch" target="_blank"
+                            aria-label="YouTube"><img src="https://img.icons8.com/color/48/youtube-play.png"
+                                alt="YouTube Icon" /></a><a href="https://www.tiktok.com/@loletube1" target="_blank"
+                            aria-label="TikTok"><img src="https://img.icons8.com/color/48/tiktok--v1.png"
+                                alt="TikTok Icon" /></a><a href="https://t.me/lole_evangelical_church" target="_blank"
+                            aria-label="Telegram"><img src="https://img.icons8.com/color/48/telegram-app--v1.png"
+                                alt="Telegram Icon" /></a><a href="https://chat.whatsapp.com/Cj0OKZYq8BIJcVEwb69Rcy"
+                            target="_blank" aria-label="WhatsApp"><img
+                                src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp Icon" /></a></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lole Evangelical Church. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script to dynamically load footer components (newsletter/icons) -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
