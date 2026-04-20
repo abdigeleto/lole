@@ -226,6 +226,7 @@ if (videoModal) {
                     videoIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
                     videoModal.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                    document.documentElement.style.overflow = 'hidden';
                 } else {
                     showComingSoonToast();
                 }
@@ -236,6 +237,7 @@ if (videoModal) {
     const closeModal = () => {
         videoModal.classList.remove('active');
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
         setTimeout(() => { videoIframe.src = ''; }, 400);
     };
 
