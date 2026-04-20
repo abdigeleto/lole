@@ -158,34 +158,40 @@ img {
 
 .nav-toggle {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
     background: none;
     border: none;
+    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
-    padding: 0;
+    padding: 8px;
     z-index: 1100;
+    color: var(--primary-color);
+    overflow: visible;
+    position: relative;
 }
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
+.hamburger {
     display: block;
-    width: 28px;
-    height: 2px;
-    background: var(--primary-color);
-    border-radius: 2px;
-    transition: transform 0.35s ease, opacity 0.25s ease;
     position: relative;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    margin: 8px 0;
+    transition: background 0.3s ease;
 }
 
 .hamburger::before,
 .hamburger::after {
     content: '';
+    display: block;
     position: absolute;
     left: 0;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.35s ease;
 }
 
 .hamburger::before {
@@ -196,25 +202,27 @@ img {
     top: 8px;
 }
 
-/* Animate to × when active */
+/* Animate to × when active — button stays above overlay so use white */
+.nav-toggle.active {
+    color: #fff;
+}
+
 .nav-toggle.active .hamburger {
     background: transparent;
 }
 
 .nav-toggle.active .hamburger::before {
     transform: translateY(8px) rotate(45deg);
-    background: #fff;
 }
 
 .nav-toggle.active .hamburger::after {
     transform: translateY(-8px) rotate(-45deg);
-    background: #fff;
 }
 
 /* --- Mobile: full-screen overlay drawer --- */
 @media (max-width: 900px) {
     .nav-toggle {
-        display: flex;
+        display: block;
     }
 
     .main-nav {
