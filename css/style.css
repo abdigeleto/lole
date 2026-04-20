@@ -2230,3 +2230,100 @@ tbody tr:last-of-type td {
         min-height: 280px;
     }
 }
+
+/* --- Sermon List: Row Layout --- */
+.sermon-list {
+    padding: 8px 0;
+}
+
+.sermon-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #eef0ee;
+}
+
+.sermon-row:last-child {
+    border-bottom: none;
+}
+
+.sermon-title-text {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #2c3e2d;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.play-button.small-play {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.play-button.small-play:hover {
+    background: #b8972e;
+    transform: scale(1.1);
+}
+
+.play-button.small-play svg {
+    width: 16px;
+    height: 16px;
+    fill: #1b4332;
+    margin-left: 2px;
+}
+
+/* --- Mobile Font Size Fixes --- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .logo span {
+        font-size: 0.85rem;
+    }
+
+    .accordion-lvl-1,
+    .accordion-lvl-2 {
+        font-size: 0.95rem;
+        padding: 14px 16px;
+    }
+
+    .sermon-title-text {
+        font-size: 0.88rem;
+    }
+
+    .page-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+}
