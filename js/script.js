@@ -28,23 +28,30 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const mainNav = document.querySelector('.main-nav');
 
+const closeNav = () => {
+    navToggle.classList.remove('active');
+    if (mainNav) mainNav.classList.remove('active');
+    navToggle.setAttribute('aria-label', 'open navigation');
+};
+
 if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-        // Toggle the navigation menu visibility
-        navLinks.classList.toggle('nav-active');
-        if (mainNav) mainNav.classList.toggle('active');
-
-        // Toggle the hamburger icon animation
-        navToggle.classList.toggle('active');
-
-        // Update the accessibility label
-        if (navLinks.classList.contains('nav-active')) {
-            navToggle.setAttribute('aria-label', 'close navigation');
+        const isOpen = mainNav && mainNav.classList.contains('active');
+        if (isOpen) {
+            closeNav();
         } else {
-            navToggle.setAttribute('aria-label', 'open navigation');
+            navToggle.classList.add('active');
+            if (mainNav) mainNav.classList.add('active');
+            navToggle.setAttribute('aria-label', 'close navigation');
         }
     });
+
+    // Close menu when a link is tapped on mobile
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeNav);
+    });
 }
+
 
 /* --- INFINITE LOOP \"Latest News\" Image Carousel --- */
 (function () {
