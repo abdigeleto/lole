@@ -27,54 +27,25 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const mainNav = document.querySelector('.main-nav');
 
-function openNav() {
-    if (!mainNav || !navLinks) return;
-
-    // Lift the toggle button ABOVE the overlay so it remains clickable
-    navToggle.style.cssText = 'position:fixed;top:14px;right:18px;z-index:1100;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1';
-    navToggle.textContent = '\u00d7'; // ✕
-
-    // Full-screen dark green overlay
-    mainNav.style.cssText = 'display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1050;background:#1b4332;overflow:auto';
-
-    // Style the nav links list
-    navLinks.style.cssText = 'display:flex;flex-direction:column;align-items:stretch;padding:80px 0 40px;margin:0;list-style:none;width:100%';
-    navLinks.querySelectorAll('li').forEach(li => { li.style.cssText = 'margin:0;border-bottom:1px solid rgba(255,255,255,0.12)'; });
-    navLinks.querySelectorAll('a').forEach(a => { a.style.cssText = 'display:block;color:#fff;font-size:1.3rem;font-weight:700;padding:18px 32px;text-align:center'; });
-
-    document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-    // Clear ALL inline styles — lets CSS take over cleanly (no desktop breakage)
-    navToggle.style.cssText = '';
-    navToggle.textContent = '\u2630'; // ☰
-
-    if (mainNav) mainNav.style.cssText = '';
-    if (navLinks) {
-        navLinks.style.cssText = '';
-        navLinks.querySelectorAll('li').forEach(li => { li.style.cssText = ''; });
-        navLinks.querySelectorAll('a').forEach(a => { a.style.cssText = ''; });
-    }
-
-    document.body.style.overflow = '';
-}
-
-if (navToggle) {
+if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-        const isOpen = mainNav && mainNav.style.position === 'fixed';
-        isOpen ? closeNav() : openNav();
+        const isOpen = mainNav && mainNav.classList.contains('active');
+        if (isOpen) {
+            mainNav.classList.remove('active');
+            navToggle.setAttribute('aria-label', 'open navigation');
+        } else {
+            if (mainNav) mainNav.classList.add('active');
+            navToggle.setAttribute('aria-label', 'close navigation');
+        }
     });
-    if (navLinks) {
-        navLinks.querySelectorAll('a').forEach(link =>
-            link.addEventListener('click', closeNav)
-        );
-    }
+
+    // Close menu when any nav link is tapped
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (mainNav) mainNav.classList.remove('active');
+        });
+    });
 }
-
-
-
-
 
 
 /* --- INFINITE LOOP \"Latest News\" Image Carousel --- */
