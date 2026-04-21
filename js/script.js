@@ -32,41 +32,57 @@ const navLinks = document.querySelector('.nav-links');
     let overlay = null;
 
     function buildOverlay() {
-        const el = document.createElement('div');
-        el.id = 'mobile-nav-overlay';
-        el.style.cssText = [
-            'position:fixed', 'top:0', 'left:0',
-            'width:100%', 'height:100%',
-            'z-index:9999',
+        // Outer: full-screen semi-transparent backdrop
+        const backdrop = document.createElement('div');
+        backdrop.id = 'mobile-nav-overlay';
+        backdrop.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:rgba(0,0,0,0.45)';
+        backdrop.addEventListener('click', function (e) {
+            if (e.target === backdrop) destroyOverlay();
+        });
+
+        // Inner: right-side drawer panel
+        const drawer = document.createElement('div');
+        drawer.style.cssText = [
+            'position:absolute', 'top:0', 'right:0',
+            'width:78%', 'max-width:320px', 'height:100%',
             'background:#1b4332',
             'display:flex', 'flex-direction:column',
-            'align-items:center', 'justify-content:center',
-            'overflow:auto'
+            'overflow-y:auto',
+            'box-shadow:-4px 0 20px rgba(0,0,0,0.3)'
         ].join(';');
 
-        // Close (✕) button pinned top-right
+        // Close (✕) button top-right in drawer
         const closeBtn = document.createElement('button');
         closeBtn.textContent = '\u00d7';
-        closeBtn.style.cssText = 'position:absolute;top:18px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;padding:0';
+        closeBtn.style.cssText = 'align-self:flex-end;background:none;border:none;color:rgba(255,255,255,0.8);font-size:2.2rem;cursor:pointer;line-height:1;padding:18px 20px 10px';
         closeBtn.addEventListener('click', destroyOverlay);
-        el.appendChild(closeBtn);
+        drawer.appendChild(closeBtn);
 
         // Nav link list
         const ul = document.createElement('ul');
-        ul.style.cssText = 'list-style:none;margin:0;padding:0;width:100%;text-align:center';
+        ul.style.cssText = 'list-style:none;margin:0;padding:0;width:100%';
         navLinks.querySelectorAll('a').forEach(orig => {
             const li = document.createElement('li');
-            li.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.15)';
+            li.style.cssText = 'border-top:1px solid rgba(255,255,255,0.12)';
             const a = document.createElement('a');
             a.href = orig.href;
             a.textContent = orig.textContent;
-            a.style.cssText = 'display:block;color:#fff;font-size:1.35rem;font-weight:700;padding:20px 32px;text-decoration:none';
+            a.style.cssText = [
+                'display:block',
+                'color:rgba(255,255,255,0.9)',
+                'font-size:1.05rem',
+                'font-weight:600',
+                'padding:16px 24px',
+                'text-decoration:none',
+                'letter-spacing:0.02em'
+            ].join(';');
             a.addEventListener('click', destroyOverlay);
             li.appendChild(a);
             ul.appendChild(li);
         });
-        el.appendChild(ul);
-        return el;
+        drawer.appendChild(ul);
+        backdrop.appendChild(drawer);
+        return backdrop;
     }
 
     function destroyOverlay() {
@@ -86,6 +102,8 @@ const navLinks = document.querySelector('.nav-links');
         document.body.style.overflow = 'hidden';
     });
 })();
+
+
 
 
 /* --- INFINITE LOOP \"Latest News\" Image Carousel --- */
