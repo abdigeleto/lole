@@ -163,40 +163,16 @@ img {
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
-    padding: 6px;
+    padding: 4px 8px;
     z-index: 1100;
     color: var(--primary-color);
-    position: relative;
+    font-size: 1.7rem;
+    line-height: 1;
 }
 
-.hamburger-svg {
-    display: block;
-    width: 26px;
-    height: 26px;
-}
-
-.hamburger-svg line {
-    transition: transform 0.35s ease, opacity 0.25s ease;
-    transform-box: fill-box;
-    transform-origin: center;
-}
-
-/* Animate to × when nav is open */
+/* When nav is open, button turns white (it sits above the dark overlay) */
 .nav-toggle.active {
     color: #fff;
-}
-
-.nav-toggle.active .hamburger-svg line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-}
-
-.nav-toggle.active .hamburger-svg line:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.nav-toggle.active .hamburger-svg line:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
 }
 
 

@@ -30,6 +30,7 @@ const mainNav = document.querySelector('.main-nav');
 
 const closeNav = () => {
     navToggle.classList.remove('active');
+    navToggle.textContent = '\u2630'; // ☰
     if (mainNav) mainNav.classList.remove('active');
     navToggle.setAttribute('aria-label', 'open navigation');
 };
@@ -41,6 +42,7 @@ if (navToggle && navLinks) {
             closeNav();
         } else {
             navToggle.classList.add('active');
+            navToggle.textContent = '\u00d7'; // ✕
             if (mainNav) mainNav.classList.add('active');
             navToggle.setAttribute('aria-label', 'close navigation');
         }
@@ -51,6 +53,7 @@ if (navToggle && navLinks) {
         link.addEventListener('click', closeNav);
     });
 }
+
 
 
 /* --- INFINITE LOOP \"Latest News\" Image Carousel --- */
