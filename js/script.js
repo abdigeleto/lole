@@ -28,42 +28,51 @@ const navLinks = document.querySelector('.nav-links');
 const mainNav = document.querySelector('.main-nav');
 
 function openNav() {
-    if (!mainNav) return;
-    mainNav.style.cssText = [
-        'display:flex',
-        'position:fixed',
-        'top:0', 'left:0', 'width:100%', 'height:100%',
-        'z-index:1050',
-        'background:#1b4332',
-        'align-items:center',
-        'justify-content:center',
-        'flex-direction:column'
-    ].join(';');
-    navToggle.textContent = '\u00d7';   // ✕
-    navToggle.style.color = '#ffffff';
+    if (!mainNav || !navLinks) return;
+
+    // Lift the toggle button ABOVE the overlay so it remains clickable
+    navToggle.style.cssText = 'position:fixed;top:14px;right:18px;z-index:1100;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1';
+    navToggle.textContent = '\u00d7'; // ✕
+
+    // Full-screen dark green overlay
+    mainNav.style.cssText = 'display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1050;background:#1b4332;overflow:auto';
+
+    // Style the nav links list
+    navLinks.style.cssText = 'display:flex;flex-direction:column;align-items:stretch;padding:80px 0 40px;margin:0;list-style:none;width:100%';
+    navLinks.querySelectorAll('li').forEach(li => { li.style.cssText = 'margin:0;border-bottom:1px solid rgba(255,255,255,0.12)'; });
+    navLinks.querySelectorAll('a').forEach(a => { a.style.cssText = 'display:block;color:#fff;font-size:1.3rem;font-weight:700;padding:18px 32px;text-align:center'; });
+
     document.body.style.overflow = 'hidden';
 }
 
 function closeNav() {
-    if (!mainNav) return;
-    mainNav.style.cssText = 'display:none';
-    navToggle.textContent = '\u2630';   // ☰
-    navToggle.style.color = '';
+    // Clear ALL inline styles — lets CSS take over cleanly (no desktop breakage)
+    navToggle.style.cssText = '';
+    navToggle.textContent = '\u2630'; // ☰
+
+    if (mainNav) mainNav.style.cssText = '';
+    if (navLinks) {
+        navLinks.style.cssText = '';
+        navLinks.querySelectorAll('li').forEach(li => { li.style.cssText = ''; });
+        navLinks.querySelectorAll('a').forEach(a => { a.style.cssText = ''; });
+    }
+
     document.body.style.overflow = '';
 }
 
 if (navToggle) {
     navToggle.addEventListener('click', () => {
-        const isOpen = mainNav && mainNav.style.display === 'flex';
+        const isOpen = mainNav && mainNav.style.position === 'fixed';
         isOpen ? closeNav() : openNav();
     });
-
     if (navLinks) {
         navLinks.querySelectorAll('a').forEach(link =>
             link.addEventListener('click', closeNav)
         );
     }
 }
+
+
 
 
 
