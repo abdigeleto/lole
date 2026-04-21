@@ -182,6 +182,13 @@ img {
         display: block;
     }
 
+    /* Pin logo firmly to the left — prevents any drift */
+    .logo {
+        flex: 0 0 auto;
+        margin-right: auto;
+        justify-content: flex-start;
+    }
+
     .main-nav {
         display: none;
         position: fixed;
