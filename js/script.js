@@ -24,35 +24,47 @@ document.addEventListener('keydown', (e) => {
 });
 
 const navToggle = document.querySelector('.nav-toggle');
-
 const navLinks = document.querySelector('.nav-links');
 const mainNav = document.querySelector('.main-nav');
 
-const closeNav = () => {
-    navToggle.classList.remove('active');
-    navToggle.textContent = '\u2630'; // ☰
-    if (mainNav) mainNav.classList.remove('active');
-    navToggle.setAttribute('aria-label', 'open navigation');
-};
-
-if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-        const isOpen = mainNav && mainNav.classList.contains('active');
-        if (isOpen) {
-            closeNav();
-        } else {
-            navToggle.classList.add('active');
-            navToggle.textContent = '\u00d7'; // ✕
-            if (mainNav) mainNav.classList.add('active');
-            navToggle.setAttribute('aria-label', 'close navigation');
-        }
-    });
-
-    // Close menu when a link is tapped on mobile
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeNav);
-    });
+function openNav() {
+    if (!mainNav) return;
+    mainNav.style.cssText = [
+        'display:flex',
+        'position:fixed',
+        'top:0', 'left:0', 'width:100%', 'height:100%',
+        'z-index:1050',
+        'background:#1b4332',
+        'align-items:center',
+        'justify-content:center',
+        'flex-direction:column'
+    ].join(';');
+    navToggle.textContent = '\u00d7';   // ✕
+    navToggle.style.color = '#ffffff';
+    document.body.style.overflow = 'hidden';
 }
+
+function closeNav() {
+    if (!mainNav) return;
+    mainNav.style.cssText = 'display:none';
+    navToggle.textContent = '\u2630';   // ☰
+    navToggle.style.color = '';
+    document.body.style.overflow = '';
+}
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = mainNav && mainNav.style.display === 'flex';
+        isOpen ? closeNav() : openNav();
+    });
+
+    if (navLinks) {
+        navLinks.querySelectorAll('a').forEach(link =>
+            link.addEventListener('click', closeNav)
+        );
+    }
+}
+
 
 
 
