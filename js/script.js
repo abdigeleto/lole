@@ -25,27 +25,67 @@ document.addEventListener('keydown', (e) => {
 
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
-const mainNav = document.querySelector('.main-nav');
 
-if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-        const isOpen = mainNav && mainNav.classList.contains('active');
-        if (isOpen) {
-            mainNav.classList.remove('active');
-            navToggle.setAttribute('aria-label', 'open navigation');
-        } else {
-            if (mainNav) mainNav.classList.add('active');
-            navToggle.setAttribute('aria-label', 'close navigation');
-        }
-    });
+(function setupMobileNav() {
+    if (!navToggle || !navLinks) return;
 
-    // Close menu when any nav link is tapped
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (mainNav) mainNav.classList.remove('active');
+    let overlay = null;
+
+    function buildOverlay() {
+        const el = document.createElement('div');
+        el.id = 'mobile-nav-overlay';
+        el.style.cssText = [
+            'position:fixed', 'top:0', 'left:0',
+            'width:100%', 'height:100%',
+            'z-index:9999',
+            'background:#1b4332',
+            'display:flex', 'flex-direction:column',
+            'align-items:center', 'justify-content:center',
+            'overflow:auto'
+        ].join(';');
+
+        // Close (✕) button pinned top-right
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = '\u00d7';
+        closeBtn.style.cssText = 'position:absolute;top:18px;right:20px;background:none;border:none;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1;padding:0';
+        closeBtn.addEventListener('click', destroyOverlay);
+        el.appendChild(closeBtn);
+
+        // Nav link list
+        const ul = document.createElement('ul');
+        ul.style.cssText = 'list-style:none;margin:0;padding:0;width:100%;text-align:center';
+        navLinks.querySelectorAll('a').forEach(orig => {
+            const li = document.createElement('li');
+            li.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.15)';
+            const a = document.createElement('a');
+            a.href = orig.href;
+            a.textContent = orig.textContent;
+            a.style.cssText = 'display:block;color:#fff;font-size:1.35rem;font-weight:700;padding:20px 32px;text-decoration:none';
+            a.addEventListener('click', destroyOverlay);
+            li.appendChild(a);
+            ul.appendChild(li);
         });
+        el.appendChild(ul);
+        return el;
+    }
+
+    function destroyOverlay() {
+        if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        overlay = null;
+        navToggle.textContent = '\u2630';
+        navToggle.style.color = '';
+        document.body.style.overflow = '';
+    }
+
+    navToggle.addEventListener('click', () => {
+        if (overlay) { destroyOverlay(); return; }
+        overlay = buildOverlay();
+        document.body.appendChild(overlay);
+        navToggle.textContent = '\u00d7';
+        navToggle.style.color = '#1b4332';
+        document.body.style.overflow = 'hidden';
     });
-}
+})();
 
 
 /* --- INFINITE LOOP \"Latest News\" Image Carousel --- */
