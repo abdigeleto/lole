@@ -58,27 +58,44 @@ const navLinks = document.querySelector('.nav-links');
         closeBtn.addEventListener('click', destroyOverlay);
         drawer.appendChild(closeBtn);
 
-        // Nav link list
+        // Nav link list — handles both normal links and dropdown groups
         const ul = document.createElement('ul');
         ul.style.cssText = 'list-style:none;margin:0;padding:0;width:100%';
-        navLinks.querySelectorAll('a').forEach(orig => {
-            const li = document.createElement('li');
-            li.style.cssText = 'border-top:1px solid rgba(255,255,255,0.12)';
-            const a = document.createElement('a');
-            a.href = orig.href;
-            a.textContent = orig.textContent;
-            a.style.cssText = [
-                'display:block',
-                'color:rgba(255,255,255,0.9)',
-                'font-size:1.05rem',
-                'font-weight:600',
-                'padding:16px 24px',
-                'text-decoration:none',
-                'letter-spacing:0.02em'
-            ].join(';');
-            a.addEventListener('click', destroyOverlay);
-            li.appendChild(a);
-            ul.appendChild(li);
+        navLinks.querySelectorAll(':scope > li').forEach(origLi => {
+            if (origLi.classList.contains('nav-dropdown')) {
+                // Section label for Members
+                const labelLi = document.createElement('li');
+                labelLi.style.cssText = 'border-top:1px solid rgba(255,255,255,0.12)';
+                const label = document.createElement('span');
+                label.textContent = 'Members';
+                label.style.cssText = 'display:block;color:rgba(255,255,255,0.5);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:14px 24px 6px';
+                labelLi.appendChild(label);
+                ul.appendChild(labelLi);
+                // Sub-items
+                origLi.querySelectorAll('.nav-dropdown-menu a').forEach(subA => {
+                    const subLi = document.createElement('li');
+                    subLi.style.cssText = 'border-top:1px solid rgba(255,255,255,0.08)';
+                    const a = document.createElement('a');
+                    a.href = subA.href;
+                    a.textContent = subA.textContent;
+                    a.style.cssText = ['display:block', 'color:rgba(255,255,255,0.9)', 'font-size:1rem', 'font-weight:600', 'padding:13px 24px 13px 38px', 'text-decoration:none', 'letter-spacing:0.02em'].join(';');
+                    a.addEventListener('click', destroyOverlay);
+                    subLi.appendChild(a);
+                    ul.appendChild(subLi);
+                });
+            } else {
+                const origA = origLi.querySelector('a');
+                if (!origA) return;
+                const li = document.createElement('li');
+                li.style.cssText = 'border-top:1px solid rgba(255,255,255,0.12)';
+                const a = document.createElement('a');
+                a.href = origA.href;
+                a.textContent = origA.textContent;
+                a.style.cssText = ['display:block', 'color:rgba(255,255,255,0.9)', 'font-size:1.05rem', 'font-weight:600', 'padding:16px 24px', 'text-decoration:none', 'letter-spacing:0.02em'].join(';');
+                a.addEventListener('click', destroyOverlay);
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
         });
         drawer.appendChild(ul);
         backdrop.appendChild(drawer);
