@@ -87,6 +87,78 @@
 
 
         <!-- ====================================================== -->
+        <!-- ============== RECENT SERMONS ======================== -->
+        <!-- ====================================================== -->
+        <section class="recent-sermons-section animate-on-scroll">
+            <div class="container">
+                <div class="section-title text-center" style="margin-bottom: 40px;">
+                    <h2>Recent Sermons</h2>
+                    <p style="color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6;">Catch up on our latest
+                        teachings from God's Word, preached faithfully at Lole Evangelical Church.</p>
+                </div>
+                <div class="recent-sermons-grid">
+
+                    <!-- Romans 12:12-13 -->
+                    <div class="home-sermon-card" onclick="openVideoModal('XNPJQ3qUHr0')">
+                        <div class="home-sermon-thumb">
+                            <img src="https://img.youtube.com/vi/XNPJQ3qUHr0/mqdefault.jpg" alt="Romans 12:12-13"
+                                loading="lazy">
+                            <div class="home-sermon-play">
+                                <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="home-sermon-info">
+                            <span class="home-sermon-series">Exposition of Romans</span>
+                            <p class="home-sermon-title">Romans 12:12&ndash;13</p>
+                        </div>
+                    </div>
+
+                    <!-- John 1:5 -->
+                    <div class="home-sermon-card" onclick="openVideoModal('VmLNyh_mYkY')">
+                        <div class="home-sermon-thumb">
+                            <img src="https://img.youtube.com/vi/VmLNyh_mYkY/mqdefault.jpg" alt="John 1:5"
+                                loading="lazy">
+                            <div class="home-sermon-play">
+                                <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="home-sermon-info">
+                            <span class="home-sermon-series">Exposition of John</span>
+                            <p class="home-sermon-title">John 1:5</p>
+                        </div>
+                    </div>
+
+                    <!-- Topical: Smyrna -->
+                    <div class="home-sermon-card" onclick="openVideoModal('4M3FGd6R2Ko')">
+                        <div class="home-sermon-thumb">
+                            <img src="https://img.youtube.com/vi/4M3FGd6R2Ko/mqdefault.jpg"
+                                alt="Letter to the Church in Smyrna" loading="lazy">
+                            <div class="home-sermon-play">
+                                <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="home-sermon-info">
+                            <span class="home-sermon-series">Topical Sermons</span>
+                            <p class="home-sermon-title">The Letter Sent to the Church in Smyrna<br>
+                                <small>[Revelation 2:8&ndash;11]</small>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="text-align:center; margin-top:36px;">
+                    <a href="sermons.html" class="btn-primary" style="display:inline-block;">View All Sermons</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================== -->
         <!-- ============== SERVICE SCHEDULE GRID ================= -->
         <!-- ====================================================== -->
         <section class="schedule-cards-section animate-on-scroll">
@@ -229,6 +301,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Video Modal (for Recent Sermons play) -->
+    <div id="video-modal" class="modal-overlay">
+        <div class="modal-content" style="background:#000;">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-frame" style="padding:0; background:#000;">
+                <iframe id="video-iframe" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="border:none; border-radius:12px;"></iframe>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

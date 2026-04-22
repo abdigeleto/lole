@@ -269,6 +269,17 @@ if (pdfModal) {
     });
 }
 
+// --- Global helper: open video modal by ID (used by home page sermon cards) ---
+function openVideoModal(videoId) {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-iframe');
+    if (!modal || !iframe || !videoId) return;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+}
+
 // --- Video Modal Logic ---
 const videoModal = document.getElementById('video-modal');
 if (videoModal) {
