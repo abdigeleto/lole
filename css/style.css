@@ -748,8 +748,8 @@ img {
 
 .footer-social-icons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: nowrap;
+    gap: 10px;
     margin-top: 20px;
 }
 
@@ -763,8 +763,8 @@ img {
 }
 
 .footer-social-icons img {
-    width: 32px;
-    height: 32px;
+    width: 22px;
+    height: 22px;
 }
 
 .footer-bottom {
